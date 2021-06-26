@@ -19,7 +19,7 @@
                 break;
             }
             case "e":{
-                str2= "🥰";
+                str2= "😜";
                 break;
             }
             case "f":{
@@ -136,6 +136,10 @@
                 break;
             }
             case "🥰":{
+                str2= "e";
+                break;
+            }
+            case "😜":{
                 str2= "e";
                 break;
             }
