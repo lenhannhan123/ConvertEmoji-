@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi Emoji Code</title>
+    <!--Bootrap3-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <Script>
+        function check(){
+            let radio = document.getElementById('chon');
+
+
+            if(radio.checked==true){
+                ConverttoEmoji();
+            }else{
+                Converttotext();
+
+            }
+
+        }
+
+        
+        function ConverttoEmoji(){
+            let str = document.getElementById('input').value;
+            let str2="";
+            for(i=0;i<str.length;i++){
+                str2+= bangma1(str[i]);
+            }
+
+            document.getElementById("output").value=str2;
+        }
+
+
+        function Converttotext(){
+            let str = document.getElementById('input').value;
+
+            str= str.trim();
+            for (j=1;j<=100;j++){
+                str= str.toLowerCase().trim().replace(/  +/g, " ");
+            }
+            let str2="";
+            for(i=0;i<str.length;i+=2){
+                if (str[i]==' '){
+                    i=i+1;
+                    str2+=' ';
+                }
+                str3=str[i]+str[i+1]
+                str2+= bangma2(str3);
+            }
+
+            document.getElementById("output").value=str2;
+        }
+        
+    </Script>
+
+    <script src="javascript/function.js"></script>
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col"> <h3 style="text-align: center;" >Công cụ chuyển đổi Emoji Code</h3></div>
+        </div>
+
+        <div class="row" style="margin-top: 1.5rem;">
+            <div class="col"> 
+                <h5 style="text-align: center;">😀😃😁😅🥰🤣😢😰😊😇😉😒😞</h5>
+                <h5 style="text-align: center;">😙😟😕🙂🙃☹️😍😳😩😭😠😋😘</h5>
+            </div>
+        </div>
+
+       
+        
+            <div  class="form-group">
+                <label class="control-label col-lg-3 col-lg-offset-3 "   >Nhập nội dung</label>
+                <div class="col-lg-5 col-lg-offset-3" >
+                    <textarea rows="10" cols="30"  class="form-control"  id="input" name="input" placeholder="Nhập nội dung"></textarea>
+                </div>
+            </div>
+
+            <div  class="form-group">
+                <label class="control-label col-lg-3 col-lg-offset-3 ">Dạng chuyển đổi</label>
+                <div class="col-lg-5 col-lg-offset-4" >
+                    <input type="radio" checked name="chon" id="chon">
+                    Chữ => Emoji
+                </div>
+                <div class="col-lg-5 col-lg-offset-4" >
+                    <input type="radio" name="chon"  >
+                     Emoji => Chữ
+                </div>
+            </div>
+
+            <div  class="form-group">
+                <div class="col-lg-5 col-lg-offset-5" >
+                   <input type="button" class="btn btn-success" value="Chuyển đổi" onclick="return check()">
+                </div>
+            </div>
+
+            <div  class="form-group">
+                <label class="control-label col-lg-3 col-lg-offset-3 ">Nội dung chuyển đổi</label>
+                <div class="col-lg-5 col-lg-offset-3" >
+                    <textarea rows="10"  class="form-control"  id="output" name="output" readonly placeholder="Nội dung"></textarea>
+                </div>
+            </div>
+ 
+
+    </div>
+
+
+
+</body>
+
+</html>
